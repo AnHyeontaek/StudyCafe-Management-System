@@ -5,10 +5,12 @@
  */
 package com.cse.StudyCafe_management_system.server;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author anht0
  */
 public interface ModifyInformation {
-    
+    public abstract ArrayList<String> infoModyfy();
 }

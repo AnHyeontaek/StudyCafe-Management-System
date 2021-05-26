@@ -5,24 +5,24 @@
  */
 package com.cse.StudyCafe_management_system.server;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author anht0
  */
-public class FileRead  {
-    private String path;
-    
-   
-    public ArrayList<String> readFile() throws IOException {
+public class Server_SalesSearch implements SearchInformation {
+    @Override
+    public ArrayList<String> infoSearch(){
         ArrayList<String> resultFile = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
+            FileInputStream input=new FileInputStream("C:\\Users\\anht0\\Pay.txt");
+            InputStreamReader reader=new InputStreamReader(input,"UTF-8");
+            BufferedReader br =new BufferedReader(reader);
+//            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\anht0\\Pay.txt"));
             while (true) {
                 String line = br.readLine();
                 if (line == null) {
@@ -33,6 +33,8 @@ public class FileRead  {
             br.close();
         } catch (FileNotFoundException e) {
             System.out.println("파일이 없습니다!");
+        } catch (IOException ex) {
+            Logger.getLogger(Server_SalesSearch.class.getName()).log(Level.SEVERE, null, ex);
         }
         return resultFile;
     }

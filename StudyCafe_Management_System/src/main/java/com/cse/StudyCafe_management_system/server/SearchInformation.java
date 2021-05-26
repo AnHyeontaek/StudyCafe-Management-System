@@ -5,10 +5,12 @@
  */
 package com.cse.StudyCafe_management_system.server;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author anht0
  */
 public interface SearchInformation {
-    
+    public abstract ArrayList<String> infoSearch();
 }
