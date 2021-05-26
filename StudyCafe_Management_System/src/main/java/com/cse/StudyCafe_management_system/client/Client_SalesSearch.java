@@ -21,6 +21,5 @@ public class Client_SalesSearch {
         for(String line : SalesList) {
             System.out.println(line);
         }
-        
     }
 }

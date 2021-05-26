@@ -6,6 +6,7 @@
 package com.cse.StudyCafe_management_system;
 
 import com.cse.StudyCafe_management_system.client.Client_SalesSearch;
+import com.cse.StudyCafe_management_system.server.Server_PayInsert;
 
 /**
  *
@@ -13,7 +14,10 @@ import com.cse.StudyCafe_management_system.client.Client_SalesSearch;
  */
 public class Main {
     public static void main(String[] args){
-        Client_SalesSearch ClientSS = new Client_SalesSearch();
-        ClientSS.searchSales();
+//        Client_SalesSearch ClientSS = new Client_SalesSearch();
+//        ClientSS.searchSales();
+        Server_PayInsert ServerPI = new Server_PayInsert();
+        ServerPI.infoInsert();
+        
     }
 }

@@ -17,15 +17,26 @@ public class PaymentInfo {
     private String ticketName;
     private String paymentMethod;
     
-    private PaymentInfo(){
-        
+    private PaymentInfo(PaymentBuilder builder){
+        id = builder.id;
+        seatNumber = builder.seatNumber;
+        paymentDate = builder.paymentDate;
+        price = builder.price;
+        ticketName = builder.ticketName;
+        paymentMethod = builder.paymentMethod;
+    }
+    public void print(){
+        System.out.println("ID: "+ id + "/좌석번호: " + seatNumber + "/결제일자: " + 
+                paymentDate + "/가격: " + price + "/이용권이름: " + ticketName + "/결제방법: " + paymentMethod);
     }
     
     public static class PaymentBuilder{
+        //필수정보
         private String id;
         private int seatNumber;
         private String paymentDate;
         private int price;
+        //선택정보
         private String ticketName;
         private String paymentMethod;
         
@@ -44,15 +55,7 @@ public class PaymentInfo {
             return this;
         }
         public PaymentInfo build(){
-            PaymentInfo paymentInfo = new PaymentInfo();
-            paymentInfo.id = id;
-            paymentInfo.seatNumber = seatNumber;
-            paymentInfo.paymentDate = paymentDate;
-            paymentInfo.price = price;
-            paymentInfo.ticketName = ticketName;
-            paymentInfo.paymentMethod = paymentMethod;
-            
-            return paymentInfo;
+            return new PaymentInfo(this);
         }
     }
 }
