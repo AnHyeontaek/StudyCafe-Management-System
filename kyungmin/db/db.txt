@@ -2,7 +2,7 @@
 2,BROKEN
 3,ON
 4,OFF
-5,OFF
+5,ON
 6,ON
 7,ON
 8,ON
