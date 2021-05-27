@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package com.cse.StudyCafe_management_system.server;
-
 /**
  *
  * @author anht0
@@ -28,6 +27,12 @@ public class PaymentInfo {
     public void print(){
         System.out.println("ID: "+ id + "/좌석번호: " + seatNumber + "/결제일자: " + 
                 paymentDate + "/가격: " + price + "/이용권이름: " + ticketName + "/결제방법: " + paymentMethod);
+    }
+    
+    @Override
+    public String toString() {
+        return "ID: "+ id + "/좌석번호: " + seatNumber + "/결제일자: " + 
+                paymentDate + "/가격: " + price + "/이용권이름: " + ticketName + "/결제방법: " + paymentMethod  + "\n";
     }
     
     public static class PaymentBuilder{

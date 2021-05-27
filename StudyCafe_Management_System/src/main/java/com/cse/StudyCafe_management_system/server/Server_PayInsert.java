@@ -5,18 +5,38 @@
  */
 package com.cse.StudyCafe_management_system.server;
 
+import com.cse.StudyCafe_management_system.client.Client_PayInsert;
 import com.cse.StudyCafe_management_system.server.PaymentInfo.PaymentBuilder;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author anht0
  */
 public class Server_PayInsert implements InsertInformation {
+    public ArrayList<String> payinfo= new ArrayList<>();
     
-    public void infoInsert(){
-        PaymentInfo info1 = new PaymentInfo.PaymentBuilder("anht0624",12,"2021-05-27",2500).setTicketName("1시간 이용권").setPaymentMethod("카드").build( );
-        info1.print();
+    @Override
+    public void infoInsert(String paymentinfo){
+        try{
+            FileOutputStream output=new FileOutputStream("C:\\Users\\anht0\\Pay.txt",true);
+            OutputStreamWriter writer=new OutputStreamWriter(output,"UTF-8");
+            BufferedWriter bw=new BufferedWriter(writer);
+            bw.write(paymentinfo);
+            bw.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("파일이 없습니다!");
+        }
+        catch (IOException ex) {
+            Logger.getLogger(Server_PayInsert.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
+//    public void getPayment(){
+//        Client_PayInsert ClientPI = new Client_PayInsert();
+//         payinfo = ClientPI.setPayment();
+//    }
 
 }
