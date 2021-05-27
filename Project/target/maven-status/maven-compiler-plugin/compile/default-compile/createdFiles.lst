@@ -1,0 +1,8 @@
+com\mycompany\login\JoinMember.class
+com\mycompany\login\performC.class
+com\mycompany\login\performA.class
+com\mycompany\login\admin.class
+com\mycompany\login\client.class
+com\mycompany\login\Login.class
+com\mycompany\login\MediatorLog.class
+com\mycompany\login\PerformLog.class
