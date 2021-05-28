@@ -1,0 +1,10 @@
+1,OFF
+2,BROKEN
+3,ON
+4,OFF
+5,ON
+6,ON
+7,ON
+8,ON
+9,ON
+10,ON
