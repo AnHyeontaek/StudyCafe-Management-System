@@ -17,7 +17,6 @@ import java.util.logging.Logger;
  * @author anht0
  */
 public class Server_PayInsert implements InsertInformation {
-    public ArrayList<String> payinfo= new ArrayList<>();
     
     @Override
     public void infoInsert(String paymentinfo){

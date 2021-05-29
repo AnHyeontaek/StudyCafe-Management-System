@@ -24,10 +24,6 @@ public class PaymentInfo {
         ticketName = builder.ticketName;
         paymentMethod = builder.paymentMethod;
     }
-    public void print(){
-        System.out.println("ID: "+ id + "/좌석번호: " + seatNumber + "/결제일자: " + 
-                paymentDate + "/가격: " + price + "/이용권이름: " + ticketName + "/결제방법: " + paymentMethod);
-    }
     
     @Override
     public String toString() {

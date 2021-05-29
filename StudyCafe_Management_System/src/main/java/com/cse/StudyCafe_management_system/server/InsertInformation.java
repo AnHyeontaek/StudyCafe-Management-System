@@ -12,5 +12,5 @@ import java.util.ArrayList;
  * @author anht0
  */
 public interface InsertInformation {
-    public abstract void infoInsert(String paymentinfo);
+    public abstract void infoInsert(String information);
 }
