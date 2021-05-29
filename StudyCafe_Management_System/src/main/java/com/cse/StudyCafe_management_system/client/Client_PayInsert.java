@@ -7,7 +7,6 @@ package com.cse.StudyCafe_management_system.client;
 
 import com.cse.StudyCafe_management_system.server.InsertInformation;
 import com.cse.StudyCafe_management_system.server.PaymentInfo;
-import com.cse.StudyCafe_management_system.server.Server_CheckPay;
 import com.cse.StudyCafe_management_system.server.Server_PayInsert;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -62,9 +61,7 @@ public class Client_PayInsert {
         // Client => 사용자가 입력받은 값을 통해 PaymentInfo 생성 
         PaymentInfo info1 = new PaymentInfo.PaymentBuilder(id,seatNum,PayDate,price).setTicketName(ticketName).setPaymentMethod(paymentMethod).build( );
         InsertInformation II = new Server_PayInsert();
-        Server_CheckPay Server_CP = new Server_CheckPay();
-        payCount = Server_CP.checkPay();
-        String text = payCount + "," +info1.toString();
+        String text = payCount +","+info1.toString();
         II.infoInsert(text);
     }
 }

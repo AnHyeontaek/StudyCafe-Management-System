@@ -8,15 +8,11 @@ package com.cse.StudyCafe_management_system.server;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,23 +20,20 @@ import java.util.logging.Logger;
  *
  * @author anht0
  */
-public class Server_SeatInsert implements InsertInformation {
-    int seatnum = 0;
-    
+public class Server_UserInCafe implements InsertInformation{
     @Override
-    public void infoInsert(String seatinfo){
+    public void infoInsert(String userTimeinfo){
         try{
-            FileOutputStream output=new FileOutputStream("./Seat.txt",true);
+            FileOutputStream output=new FileOutputStream("./InUser.txt",true);
             OutputStreamWriter writer=new OutputStreamWriter(output,"UTF-8");
             BufferedWriter bw=new BufferedWriter(writer);
-            bw.write(seatinfo);
+            bw.write(userTimeinfo);
             bw.close();
         } catch (FileNotFoundException e) {
             System.out.println("파일이 없습니다!");
         }
         catch (IOException ex) {
-            Logger.getLogger(Server_SeatInsert.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Server_PayInsert.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
-

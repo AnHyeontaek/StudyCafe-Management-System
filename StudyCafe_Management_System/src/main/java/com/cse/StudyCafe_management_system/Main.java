@@ -28,5 +28,6 @@ public class Main {
             MediatorLog log = new MediatorLog();
             int tema = log.start();
             log.select(tema); 
+            
     }
 }

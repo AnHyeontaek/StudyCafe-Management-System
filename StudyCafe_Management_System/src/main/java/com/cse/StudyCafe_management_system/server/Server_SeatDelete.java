@@ -6,10 +6,14 @@
 package com.cse.StudyCafe_management_system.server;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,18 +21,17 @@ import java.util.logging.Logger;
  *
  * @author anht0
  */
-public class Server_PayDelete implements DeleteInformation {
-    
+public class Server_SeatDelete implements DeleteInformation{
     @Override
-    public void infoDelete(String payNumber){	
+    public void infoDelete(String seatNum){
         String dummy = "";
-        int count = Integer.parseInt(payNumber);
+        int count = Integer.parseInt(seatNum);
         try {
-            FileInputStream input=new FileInputStream("./Pay.txt");
+            FileInputStream input=new FileInputStream("./Seat.txt");
             InputStreamReader reader=new InputStreamReader(input,"UTF-8");
             BufferedReader br =new BufferedReader(reader);
             String line;
-           for (int i=0; i< Integer.parseInt(payNumber)-1; i++){
+           for (int i=0; i< Integer.parseInt(seatNum)-1; i++){
                line = br.readLine();
                dummy += (line + "\r\n");
             }
@@ -42,15 +45,15 @@ public class Server_PayDelete implements DeleteInformation {
                 count++;
             }
           
-            FileWriter fw = new FileWriter("./Pay.txt");
+            FileWriter fw = new FileWriter("./Seat.txt");
             fw.write(dummy);
 
             fw.flush();
             fw.close();
-            System.out.println("결제정보가 삭제되었습니다.");
+            System.out.println("좌석이 삭제되었습니다.");
       
         } catch (IOException ex) {
-            Logger.getLogger(Server_PayDelete.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Server_SeatDelete.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

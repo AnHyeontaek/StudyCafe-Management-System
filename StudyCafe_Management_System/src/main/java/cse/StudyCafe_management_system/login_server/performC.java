@@ -5,6 +5,7 @@
  */
 package cse.StudyCafe_management_system.login_server;
 
+import StudyCafe_management_system.IOserver.IOMain;
 import com.cse.StudyCafe_Chair.client.Client;
 import com.cse.StudyCafe_Chair.server.Server;
 import java.io.BufferedReader;
@@ -14,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  *
@@ -37,11 +39,21 @@ public class performC implements PerformLog {
                     Client client = new Client();       
                     Server server = new Server();
                     server.getID(id);
-                    server.view();
-                    String num = client.insertnum();
-                    server.getSeatnum(num);
-                    String countChairs = client.getCheckchair();
-                    server.Use(countChairs);
+                    System.out.println("1. 결제 2. 퇴실");
+                    Scanner sc = new Scanner(System.in);
+                    int choiceType = sc.nextInt();
+                    if(choiceType == 1){
+                        server.view();
+                        String num = client.insertnum();
+                        server.getSeatnum(num);
+                        String countChairs = client.getCheckchair();
+                        server.Use(countChairs);
+                    }
+                    else if(choiceType == 2){
+                        IOMain IOM = new IOMain();
+                        IOM.IOplay(1);
+                        server.Userout(id);
+                    }
                     break;
                 }
             }
