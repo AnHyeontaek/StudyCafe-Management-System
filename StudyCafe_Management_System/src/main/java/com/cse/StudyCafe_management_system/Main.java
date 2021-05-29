@@ -11,6 +11,7 @@ import com.cse.StudyCafe_management_system.client.Client_SeatInsert;
 import com.cse.StudyCafe_management_system.server.Server_PayInsert;
 import cse.StudyCafe_management_system.login_server.MediatorLog;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -26,6 +27,6 @@ public class Main {
 //        Client_SI.insertSeat();
             MediatorLog log = new MediatorLog();
             int tema = log.start();
-            log.select(tema);
+            log.select(tema); 
     }
 }

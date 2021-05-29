@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cse.StudyCafe_management_system.server;
-
-import java.util.ArrayList;
+package com.cse.StudyCafe_Chair.server;
 
 /**
  *
- * @author anht0
+ * @author pkm30
  */
-public interface DeleteInformation {
-    public abstract void infoDelete(String payNumber);
+public interface State {
+    public void powerPush(String chair_state);
 }

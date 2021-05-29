@@ -29,11 +29,12 @@ public abstract class Login {
 
             if (password.length() != 6) { //6자리 숫자로 입력한지 확인
                 System.out.println("6자리로 입력해 주세요.");
-                System.exit(0); //6자리가 아니면 프로그램 종료
+                inputpw(); //6자리가 아니면 프로그램 종료
             }
             return password;
         } catch (NumberFormatException e) { //정수가 아닌 입력이 올 경우 예외처리}
             System.out.println("비밀번호를 정수로 입력 해주세요.");
+            inputpw();
         }
         return password;
     }

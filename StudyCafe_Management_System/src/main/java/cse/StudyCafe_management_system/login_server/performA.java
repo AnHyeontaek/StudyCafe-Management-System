@@ -26,19 +26,22 @@ public class performA implements PerformLog{
             String line = null;
             String pw = String.valueOf(password); //pw를 스트링으로 변환하여 검색
             FileInputStream input=new FileInputStream("./ClientList.txt");
-            InputStreamReader reader=new InputStreamReader(input);
+            InputStreamReader reader=new InputStreamReader(input,"UTF-8");
             BufferedReader br =new BufferedReader(reader);
             while ((line = br.readLine()) != null) {
                 String[] over = line.split(","); //텍스트 파일의 첫번째에 위치하는 ID값을 추출
                 String i = over[0]; //문자열끼리 비교를 위해 ID값을 배열에서 옮김
                 String p = over[1]; //비밀번호 값을 불러와 int값으로 변환하여 비교 변수에 대입
-                if (p == password && id.equals(i)) { //아이디와 비밀번호가 맞는지 확인
+                if (p.equals(password) && id.equals(i)) { //아이디와 비밀번호가 맞는지 확인
                     System.out.println("로그인 완료");
                     break;
                 }
             }
             if (line == null) { //맞는 아이디와 비밀번호가 없으면 로그인 실패알림.
                 System.out.println("로그인 실패");
+                MediatorLog log = new MediatorLog();
+                int tema = log.start();
+                log.select(tema);
             }
 
         } catch (FileNotFoundException ex) {

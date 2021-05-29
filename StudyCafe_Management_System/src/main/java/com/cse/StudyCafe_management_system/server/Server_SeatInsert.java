@@ -42,14 +42,5 @@ public class Server_SeatInsert implements InsertInformation {
             Logger.getLogger(Server_PayInsert.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public int checkseat() throws IOException{
-        int lineCnt = 0;
-        File Dir = new File("./Seat.txt"); //파일 지정
-        BufferedReader br = new BufferedReader(new FileReader(Dir));
-        while ((br.readLine()) != null) {
-            lineCnt++;
-        }
-        return lineCnt;
-    }
 }
 

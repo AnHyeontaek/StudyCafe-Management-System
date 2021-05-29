@@ -32,11 +32,13 @@ public class MediatorLog  {
         }
     }
     
-    public void select(int a){ //사용자의 입력에 따른 기능을 switch 문으로 실행
+    public String select(int a){ //사용자의 입력에 따른 기능을 switch 문으로 실행
+        String result = "";
                 switch (a) {
             case 1: 
                 client cl = new client(); //회원 로그인 객체 생성
                 cl.clientplay(cl.inputid(),cl.inputpw()); //회원 아이디와 비밀번호를 입력받아 로그인 진행
+                result = "Client";
                 break;
             case 2:
                 InsertMember jm = new InsertMember(); //회원가입 객체 생성
@@ -46,11 +48,13 @@ public class MediatorLog  {
             case 3:
                  admin ad = new admin(); //관리자 로그인 객체 생성
                  ad.adminplay(ad.inputid(), ad.inputpw()); //관리자 아이디와 비밀번호를 입력받아 관리자 로그인 실행
+                 result = "Admin";
                 break;
             default:
                 System.out.println("입력 오류, 선택사항을 정수로 입력바람. 다시 실행 해주세요.");
                 break;
         }
+        return result;
     }
 
 }

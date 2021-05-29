@@ -7,7 +7,9 @@ package com.cse.StudyCafe_management_system.client;
 
 import com.cse.StudyCafe_management_system.server.InsertInformation;
 import com.cse.StudyCafe_management_system.server.PaymentInfo;
+import com.cse.StudyCafe_management_system.server.Server_CheckPay;
 import com.cse.StudyCafe_management_system.server.Server_PayInsert;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -32,8 +34,8 @@ public class Client_PayInsert {
         return ticket;
     }
 
-    public void insertPayment(){ 
-        int ticketType, price=0, paymentType;
+    public void insertPayment(String id, String seatNum) throws IOException{ 
+        int ticketType, price=0, paymentType, payCount = 1;
         String ticketName = "";
         String paymentMethod = "";
         Date today = new Date();
@@ -58,8 +60,11 @@ public class Client_PayInsert {
             ticketName = "8시간 이용권";
         }
         // Client => 사용자가 입력받은 값을 통해 PaymentInfo 생성 
-        PaymentInfo info1 = new PaymentInfo.PaymentBuilder("anht0624",12,PayDate,price).setTicketName(ticketName).setPaymentMethod(paymentMethod).build( );
+        PaymentInfo info1 = new PaymentInfo.PaymentBuilder(id,seatNum,PayDate,price).setTicketName(ticketName).setPaymentMethod(paymentMethod).build( );
         InsertInformation II = new Server_PayInsert();
-        II.infoInsert(info1.toString());
+        Server_CheckPay Server_CP = new Server_CheckPay();
+        payCount = Server_CP.checkPay();
+        String text = payCount + "," +info1.toString();
+        II.infoInsert(text);
     }
 }

@@ -10,7 +10,7 @@ package com.cse.StudyCafe_management_system.server;
  */
 public class PaymentInfo {
     private String id;
-    private int seatNumber;
+    private String seatNumber;
     private String paymentDate;
     private int price;
     private String ticketName;
@@ -27,21 +27,21 @@ public class PaymentInfo {
     
     @Override
     public String toString() {
-        return "ID: "+ id + "/좌석번호: " + seatNumber + "/결제일자: " + 
-                paymentDate + "/가격: " + price + "/이용권이름: " + ticketName + "/결제방법: " + paymentMethod  + "\n";
+        return "ID: "+ id + ",좌석번호: " + seatNumber + ",결제일자: " + 
+                paymentDate + ",가격: " + price + ",이용권이름: " + ticketName + ",결제방법: " + paymentMethod  + "\n";
     }
     
     public static class PaymentBuilder{
         //필수정보
         private String id;
-        private int seatNumber;
+        private String seatNumber;
         private String paymentDate;
         private int price;
         //선택정보
         private String ticketName;
         private String paymentMethod;
         
-        public PaymentBuilder(String id, int seatNumber, String paymentDate, int price){
+        public PaymentBuilder(String id, String seatNumber, String paymentDate, int price){
             this.id = id;
             this.seatNumber = seatNumber;
             this.paymentDate = paymentDate;
