@@ -21,8 +21,8 @@ public class Client_SeatInsert {
         int seatCount = 0;
         String seatInfo = "";
         InsertInformation Server_SI = new Server_SeatInsert();
-        Server_CheckSeat Server_CS = new Server_CheckSeat();
-        seatCount = Server_CS.checkseat();
+        Server_CheckSeat Server_C = new Server_CheckSeat();
+        seatCount = Server_C.checkseat();
         System.out.println("좌석을 추가합니다. 현재 좌석 수 : " + seatCount+ "EA");
         System.out.println("추가할 좌석의 수를 입력하세요 : ");
         Scanner sc = new Scanner(System.in);

@@ -5,6 +5,10 @@
  */
 package cse.StudyCafe_management_system.login_server;
 
+import com.cse.StudyCafe_Chair.server.Server;
+import com.cse.StudyCafe_UserManagement.ManageMain;
+import com.cse.StudyCafe_management_system.client.Client_SeatDelete;
+import com.cse.StudyCafe_management_system.client.Client_SeatInsert;
 import static cse.StudyCafe_management_system.login_server.PerformLog.infoList;
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  *
@@ -25,7 +30,8 @@ public class performA implements PerformLog{
         try {
             String line = null;
             String pw = String.valueOf(password); //pw를 스트링으로 변환하여 검색
-            FileInputStream input=new FileInputStream("./ClientList.txt");
+            Scanner sc = new Scanner(System.in);
+            FileInputStream input=new FileInputStream("./admin.txt");
             InputStreamReader reader=new InputStreamReader(input,"UTF-8");
             BufferedReader br =new BufferedReader(reader);
             while ((line = br.readLine()) != null) {
@@ -34,6 +40,25 @@ public class performA implements PerformLog{
                 String p = over[1]; //비밀번호 값을 불러와 int값으로 변환하여 비교 변수에 대입
                 if (p.equals(password) && id.equals(i)) { //아이디와 비밀번호가 맞는지 확인
                     System.out.println("로그인 완료");
+                    System.out.println("1. 좌석관리 2. 고객관리 3. 매출관리 4. 입퇴실관리");
+                    int AdminNum = sc.nextInt();
+                    if(AdminNum == 1){
+                            System.out.println("1.좌석추가 2.좌석삭제 3.좌석조회");
+                            int seat = sc.nextInt();
+                            if(seat == 1){
+                                Client_SeatInsert Client_SI = new Client_SeatInsert();
+                                Client_SI.insertSeat();
+                            }else if(seat == 2){
+                                Client_SeatDelete Client_SD = new Client_SeatDelete();
+                                Client_SD.deleteSeat();
+                            }else if(seat == 3){
+                                Server server = new Server();
+                                server.view();
+                            }
+                    }
+                    else if(AdminNum == 2){
+                        ManageMain manage = new ManageMain();
+                    }
                     break;
                 }
             }

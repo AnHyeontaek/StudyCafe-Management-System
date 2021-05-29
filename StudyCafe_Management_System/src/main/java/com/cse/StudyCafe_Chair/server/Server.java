@@ -37,14 +37,14 @@ public class Server {
     }
     
     public void view() throws IOException{
-         String line;
-      String[] array = null;
+        String line;
+        String[] array = null;
       
-      String choice;        
-      boolean ch = true;    
-      File myFile = new File("./Seat.txt"); 
-      FileReader fileReader = new FileReader(myFile);
-      BufferedReader reader = new BufferedReader(fileReader);
+        String choice;        
+        boolean ch = true;    
+        File myFile = new File("./Seat.txt"); 
+        FileReader fileReader = new FileReader(myFile);
+        BufferedReader reader = new BufferedReader(fileReader);
      
       while((line = reader.readLine()) != null){
       
@@ -87,14 +87,8 @@ public class Server {
         System.out.println("이 좌석을 사용하시겠습니까?(1.yes 2.no)");      
         String choice;
         choice = scan.next();
-        if(a.equals("BREAK")){
-          System.out.println("고장난자리입니다.\n좌석을 다시 선택해주세요.");
-         
-       client.insertnum();       
-       String countChairs = client.getCheckchair();
-       Use(countChairs);
-       }
-        else if(a.equals("OFF")) {                     
+
+        if(a.equals("OFF")) {                     
             if(choice.equals("1")){
                 String countChairs = client.getCheckchair();
                 Client_PayInsert ClientPI = new Client_PayInsert();
@@ -123,7 +117,6 @@ public class Server {
 
       On on = new On();
       Off off = new Off();
-      Saving saving = new Saving();
       
       String choice ;
       
@@ -132,7 +125,7 @@ public class Server {
      
       
          
-     System.out.println("1.On   2.Off   3.고장");          
+     System.out.println("1.On   2.Off");          
      choice = scan.next();
      
      if(choice.equals("1")){
@@ -146,20 +139,49 @@ public class Server {
         setState(off);
         powerPush(checkchair);
         
-     }
-     else if(choice.equals("3")){
-         
-        setState(saving);
-        powerPush(checkchair);
-        
-     }
-       
+     }  
     }
     public void getID(String id){
         ID = id;
     }
     public void getSeatnum(String seatNum){
         seatNumber = seatNum;
+    }
+    public void Userout(String iid) throws IOException{
+        Off off = new Off();
+        String line;
+        String[] array = null;
+        String[] array2 = null;
+        String[] array3 = null;
+        String a = null;
+
+        File myFile = new File("./Pay.txt");
+        FileReader fileReader = new FileReader(myFile);
+        BufferedReader reader = new BufferedReader(fileReader);
+
+        while ((line = reader.readLine()) != null) {
+
+
+            array = line.split(",");
+            String numb = array[1];
+            array2 = numb.split(": ");
+            String numb2 = array2[1];
+
+
+            String chs = array[2];
+            array3 = chs.split(": ");
+            String chs2 = array3[1];
+
+
+
+            if (numb2.equals(iid)) {
+
+                a = array3[1];
+                setState(off);
+                powerPush(a);
+
+            }
+        }
     }
     
 }

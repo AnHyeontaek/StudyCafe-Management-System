@@ -51,7 +51,8 @@ public class performC implements PerformLog {
                     }
                     else if(choiceType == 2){
                         IOMain IOM = new IOMain();
-                        IOMain.IOplay(1);
+                        IOM.IOplay(1);
+                        server.Userout(id);
                     }
                     break;
                 }

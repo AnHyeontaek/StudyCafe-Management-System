@@ -39,7 +39,7 @@ public class Server_SeatInsert implements InsertInformation {
             System.out.println("파일이 없습니다!");
         }
         catch (IOException ex) {
-            Logger.getLogger(Server_PayInsert.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Server_SeatInsert.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
