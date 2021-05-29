@@ -9,6 +9,7 @@ import com.cse.StudyCafe_management_system.client.Client_PayInsert;
 import com.cse.StudyCafe_management_system.client.Client_SalesSearch;
 import com.cse.StudyCafe_management_system.client.Client_SeatInsert;
 import com.cse.StudyCafe_management_system.server.Server_PayInsert;
+import cse.StudyCafe_management_system.login_server.MediatorLog;
 import java.io.IOException;
 
 /**
@@ -21,7 +22,10 @@ public class Main {
 //        ClientPI.insertPayment();
 //        Client_SalesSearch ClientSS = new Client_SalesSearch();
 //        ClientSS.searchSales();
-        Client_SeatInsert Client_SI = new Client_SeatInsert();
-        Client_SI.insertSeat();
+//        Client_SeatInsert Client_SI = new Client_SeatInsert();
+//        Client_SI.insertSeat();
+            MediatorLog log = new MediatorLog();
+            int tema = log.start();
+            log.select(tema);
     }
 }

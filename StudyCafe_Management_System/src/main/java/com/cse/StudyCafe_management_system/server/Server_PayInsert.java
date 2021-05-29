@@ -21,7 +21,7 @@ public class Server_PayInsert implements InsertInformation {
     @Override
     public void infoInsert(String paymentinfo){
         try{
-            FileOutputStream output=new FileOutputStream("C:\\Users\\anht0\\Pay.txt",true);
+            FileOutputStream output=new FileOutputStream("./Pay.txt",true);
             OutputStreamWriter writer=new OutputStreamWriter(output,"UTF-8");
             BufferedWriter bw=new BufferedWriter(writer);
             bw.write(paymentinfo);
@@ -33,9 +33,4 @@ public class Server_PayInsert implements InsertInformation {
             Logger.getLogger(Server_PayInsert.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-//    public void getPayment(){
-//        Client_PayInsert ClientPI = new Client_PayInsert();
-//         payinfo = ClientPI.setPayment();
-//    }
-
 }
