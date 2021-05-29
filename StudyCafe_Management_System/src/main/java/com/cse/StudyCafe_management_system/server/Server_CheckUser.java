@@ -17,21 +17,21 @@ import java.util.logging.Logger;
  *
  * @author anht0
  */
-public class Server_CheckPay implements CheckInformation{
+public class Server_CheckUser implements CheckInformation{
     @Override
     public int infocheck(){
         int lineCnt = 1;
-        File Dir = new File("./Pay.txt"); //파일 지정
+        File Dir = new File("./InUser.txt"); //파일 지정
         BufferedReader br;
         try {
             br = new BufferedReader(new FileReader(Dir));
             while ((br.readLine()) != null) {
-            lineCnt++;
+                lineCnt++;
             }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Server_CheckPay.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(Server_CheckUser.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Server_CheckPay.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Server_CheckUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lineCnt;
     }

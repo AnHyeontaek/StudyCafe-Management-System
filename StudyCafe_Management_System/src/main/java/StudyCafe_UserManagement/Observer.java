@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cse.StudyCafe_management_system.server;
-
-import java.util.ArrayList;
+package StudyCafe_UserManagement;
 
 /**
  *
- * @author anht0
+ * @author pkm30
  */
-public interface ModifyInformation {
-    public abstract ArrayList<String> infoModyfy();
+public interface Observer {
+     void update();
 }
