@@ -9,7 +9,7 @@ package Manage;
  *
  * @author pkm30
  */
-import Client_Server.Off;
+import com.cse.StudyCafe_Chair.server.Off;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
