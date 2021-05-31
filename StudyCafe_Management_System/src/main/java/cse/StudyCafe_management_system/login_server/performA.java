@@ -5,8 +5,17 @@
  */
 package cse.StudyCafe_management_system.login_server;
 
+<<<<<<< HEAD
 import com.cse.StudyCafe_Chair.server.Server;
 import com.cse.StudyCafe_UserManagement.ManageMain;
+=======
+
+import StudyCafe_UserManagement.ManageMain;
+import com.cse.StudyCafe_Chair.server.Server;
+import com.cse.StudyCafe_management_system.client.Client_IOSearch;
+import com.cse.StudyCafe_management_system.client.Client_PayDelete;
+import com.cse.StudyCafe_management_system.client.Client_SalesSearch;
+>>>>>>> origin/hyeontaek
 import com.cse.StudyCafe_management_system.client.Client_SeatDelete;
 import com.cse.StudyCafe_management_system.client.Client_SeatInsert;
 import static cse.StudyCafe_management_system.login_server.PerformLog.infoList;
@@ -40,7 +49,11 @@ public class performA implements PerformLog{
                 String p = over[1]; //비밀번호 값을 불러와 int값으로 변환하여 비교 변수에 대입
                 if (p.equals(password) && id.equals(i)) { //아이디와 비밀번호가 맞는지 확인
                     System.out.println("로그인 완료");
+<<<<<<< HEAD
                     System.out.println("1. 좌석관리 2. 고객관리 3. 매출관리 4. 입퇴실관리");
+=======
+                    System.out.println("1. 좌석관리 2. 고객관리 3. 매출관리 4. 입퇴실정보 조회");
+>>>>>>> origin/hyeontaek
                     int AdminNum = sc.nextInt();
                     if(AdminNum == 1){
                             System.out.println("1.좌석추가 2.좌석삭제 3.좌석조회");
@@ -59,6 +72,26 @@ public class performA implements PerformLog{
                     else if(AdminNum == 2){
                         ManageMain manage = new ManageMain();
                     }
+<<<<<<< HEAD
+=======
+                    else if(AdminNum == 3){
+                        System.out.println("1.매출조회 2.결제취소");
+                        int paynum = sc.nextInt();
+                        if(paynum == 1){
+                            Client_SalesSearch Client_SS = new Client_SalesSearch();
+                            Client_SS.searchSales();
+                        }
+                        else if(paynum == 2){
+                            Client_PayDelete Client_PD = new Client_PayDelete();
+                            Client_PD.deletePay();
+                        }
+                    }
+                    else if(AdminNum == 4){
+                        System.out.println("입퇴실정보를 조회합니다.");
+                        Client_IOSearch Client_IO = new Client_IOSearch();
+                        Client_IO.ioSearch();
+                    }
+>>>>>>> origin/hyeontaek
                     break;
                 }
             }

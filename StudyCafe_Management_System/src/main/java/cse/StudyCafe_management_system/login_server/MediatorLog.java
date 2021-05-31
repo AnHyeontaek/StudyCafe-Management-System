@@ -43,7 +43,11 @@ public class MediatorLog  {
             case 2:
                 InsertMember jm = new InsertMember(); //회원가입 객체 생성
                 join signup = new join();
+<<<<<<< HEAD
                 signup.join(jm.inputid(), jm.inputpw(), jm.inputName());  //사용자에게 회원가입 정보를 입력받아 매개변수로 넘김
+=======
+                signup.join(jm.inputid(), jm.inputpw(), jm.inputName(), jm.inputBirth());  //사용자에게 회원가입 정보를 입력받아 매개변수로 넘김
+>>>>>>> origin/hyeontaek
                 break;
             case 3:
                  admin ad = new admin(); //관리자 로그인 객체 생성

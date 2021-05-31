@@ -16,7 +16,11 @@ import java.util.*;
  */
 public class InsertMember extends Login {
 
+<<<<<<< HEAD
  
+=======
+    String birth; //생년월일 Ex)980505
+>>>>>>> origin/hyeontaek
     String name;
 
     public InsertMember() { //선택 사항 알림
@@ -30,7 +34,16 @@ public class InsertMember extends Login {
         return name;
     }
 
+<<<<<<< HEAD
    
+=======
+    public String inputBirth() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("생년월일을 입력 해주세요 ex)980505: ");
+        birth = sc.nextLine();
+        return birth;
+    }
+>>>>>>> origin/hyeontaek
 
     @Override
     public String inputid() {

@@ -19,8 +19,13 @@ import java.io.OutputStreamWriter;
  * @author anht0
  */
 public class join {
+<<<<<<< HEAD
     public void join(String id, String pw, String n) { //회원가입 진행
         String Text = id+","+pw+","+n+"\n";
+=======
+    public void join(String id, String pw, String n, String b) { //회원가입 진행
+        String Text = id+","+pw+","+n+","+b+"\n";
+>>>>>>> origin/hyeontaek
         try {
             String line = null;
             FileInputStream input=new FileInputStream("./ClientList.txt");

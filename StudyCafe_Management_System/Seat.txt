@@ -2,7 +2,11 @@
 2,OFF
 3,OFF
 4,OFF
+<<<<<<< HEAD
 5,ON
+=======
+5,OFF
+>>>>>>> origin/hyeontaek
 6,OFF
 7,OFF
 8,OFF
@@ -13,6 +17,7 @@
 13,OFF
 14,OFF
 15,ON
+<<<<<<< HEAD
 16,OFF
 17,OFF
 18,OFF
@@ -23,3 +28,15 @@
 23,OFF
 24,OFF
 25,OFF
+=======
+16,ON
+17,ON
+18,ON
+19,OFF
+20,ON
+21,OFF
+22,OFF
+23,ON
+24,ON
+25,ON
+>>>>>>> origin/hyeontaek

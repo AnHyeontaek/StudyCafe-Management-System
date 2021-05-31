@@ -1,6 +1,7 @@
 package StudyCafe_management_system.IOserver;
 
 import java.io.BufferedReader;
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,6 +9,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+=======
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+>>>>>>> origin/hyeontaek
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -63,12 +77,25 @@ public enum SingleIO { //enum을 활용한 싱글턴 패턴 구현
     public void Out() {
         try {
 
+<<<<<<< HEAD
             Calendar cal = Calendar.getInstance(); //퇴실 날짜를 위한 정보를 Calendar에서 받아온다.
             SimpleDateFormat OutTime = new SimpleDateFormat("yyyy:MM:dd-HH:mm:ss"); //24시로 표기
             String Out = OutTime.format(cal.getTime()); //퇴실시간을 저장
             FileWriter fw = new FileWriter(OutList, true);
             fw.write("ID: " + Outuser + " 퇴실 시간:" + Out + "\n"); //텍스트파일에 구분자(,)를 넣어 차례로 입력한다.
             fw.flush();
+=======
+            Date today = new Date();
+            SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            String Date = date.format(today);
+            FileOutputStream output=new FileOutputStream(OutList,true);
+            OutputStreamWriter writer=new OutputStreamWriter(output,"UTF-8");
+            BufferedWriter bw=new BufferedWriter(writer);
+            String text = "ID: " + Outuser + ",퇴실시간:" + Date + "\n";//텍스트파일에 구분자(,)를 넣어 차례로 입력한다.
+            bw.write(text);
+            bw.flush();
+            bw.close();
+>>>>>>> origin/hyeontaek
             System.out.println("퇴실이 정상처리 됐습니다.");
 
         } catch (IOException ex) {
